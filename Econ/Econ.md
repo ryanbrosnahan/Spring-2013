@@ -1,9 +1,11 @@
-Descrimination:
+#Notes
+
+##Descrimination:
 Oaxaca Decomposition
 
 Sample selection - Heckman
 
-Corruption:
+##Corruption:
 
 Endogineity - i.e. corruption and enforcement of laws against corruption
 Reverse causality (2 stage least squares)
@@ -12,7 +14,12 @@ Goel & Nelson
 
 income of corruption, legitimate income, strength of political institution, moral and political values of society, probability of getting caught and punished)
 
-Trade:
+##Trade:
 cross-section vs Panel
 
 Unobserved hetergeneity (AKA omitted variable bias)
+
+##Paper Layout:
+
+Intro - Define a problem, state research question. Literature review and find your niche.
+
