@@ -13,6 +13,13 @@ Minor - **Applied Mathematics**
 
 *Expected December 2013*
 
+## Skills ##
+
+
+ - **Languages** C++, SAS, Java, SQL, PHP, HTML, Matlab, C
+ - **Software** Bash, Git, SVN, Qt, Minitab, Autodesk Inventor
+ - **Environments** GNU/Linux, Windows
+
 ## Experience  ##
 
 **Student Research Assistant in Chemical Engineering** |
@@ -44,13 +51,5 @@ Quixby LLC |
 May 2012 - November 2012 
 
  - Conducted quantitative business research and gained expert knowledge of the retail technology industry
- - Networked with influencial entrepenuers across Ohio
+ - Networked with influential entrepreneurs across Ohio
  - The company raised over $100k during my time there
-
-## Skills ##
-
-
- - **Languages** C++, SAS, Java, SQL, PHP, HTML, Matlab, C
- - **Software** Bash, Git, SVN, Qt, Minitab, Autodesk Inventor
- - **Environments** GNU/Linux, Windows
-
