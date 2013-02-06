@@ -3,20 +3,18 @@ Akron, Ohio | Ryan@RyanBrosnahan.com | (614)-772-4300
 ## Education ##
 
 
-**The University of Akron**
+**The University of Akron**  
+Fall 2013
 
-B.Sc. - **Computer Science**
+B.Sc. - **Computer Science**  
+B.Sc. - **Economics**  
+Minor - **Applied Mathematics**                                                                                                                                                                                             
 
-B.Sc. - **Economics**
-
-Minor - **Applied Mathematics**
-
-*Expected December 2013*
 
 ## Skills ##
 
 
- - **Languages** C++, SAS, Java, SQL, PHP, HTML, Matlab, C
+ - **Languages** C++, SAS, Java, SQL, PHP, HTML, Matlab, C, Markdown
  - **Software** Bash, Git, SVN, Qt, Minitab, Autodesk Inventor
  - **Environments** GNU/Linux, Windows
 
