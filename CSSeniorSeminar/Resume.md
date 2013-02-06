@@ -1,5 +1,5 @@
 # Ryan Brosnahan #
-Akron, Ohio | Ryan@RyanBrosnahan.com | (604)-772-4300
+Akron, Ohio | Ryan@RyanBrosnahan.com | (614)-772-4300
 ## Education ##
 
 
