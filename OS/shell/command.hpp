@@ -3,6 +3,7 @@
 
 class command {
 public:
+    command();
     int cd();
     int clr();
     int dir();

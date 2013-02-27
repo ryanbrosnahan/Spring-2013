@@ -15,16 +15,17 @@ private:
 public:
 
     struct command {
-        char *name;
-        int argc;
-        char *argv[MAX_ARGS];
+        char *name; //name of the command
+        int argc; // how many arguments the command has
+        char *argv[MAX_ARGS]; //each of the commands
     };
 
     shell();
-    void init();
-    int parseCommand(char *cLine, struct command_t *cmd);
+    int init();
+    int execute(std::string);
+    int execute(command);
+    command parseCommand(std::string cmd);
     void printPrompt();
-    void readCommand(char *buffer);
 };
 
 #endif

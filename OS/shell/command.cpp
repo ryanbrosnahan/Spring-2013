@@ -1,5 +1,11 @@
 #include "command.hpp"
 
+#include <iostream>
+
+command::command() {
+	std::cout << "command made";
+}
+
 int command::cd() {
 
 }
