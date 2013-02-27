@@ -6,62 +6,62 @@ command::command() {
 	std::cout << "command made";
 }
 
-int command::cd() {
+void command::cd() {
 
 }
 
 
-int command::clr() {
+void command::clr() {
 
 }
 
 
-int command::dir() {
+void command::dir() {
 
 }
 
 
-int command::environ() {
+void command::environ() {
 
 }
 
 
-int command::echo() {
+void command::echo() {
 
 }
 
 
-int command::exit() {
+void command::exit() {
 
 }
 
 
-int command::help() {
+void command::help() {
 
 }
 
 
-int command::jobs() {
+void command::jobs() {
 
 }
 
 
-int command::killall() {
+void command::killall() {
 
 }
 
 
-int command::logout() {
+void command::logout() {
 
 }
 
 
-int command::pause() {
+void command::pause() {
 
 }
 
 
-int command::quit() {
+void command::quit() {
 
 }
 

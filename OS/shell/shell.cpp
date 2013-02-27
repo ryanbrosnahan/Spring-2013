@@ -11,7 +11,7 @@ shell::shell() {
 
 }
 
-int shell::init() {
+void shell::init() {
 
 	while(1) {
 
@@ -19,11 +19,20 @@ int shell::init() {
 
 		std::string input;
 		std::getline(std::cin, input);
-		
+
 		if (input.empty())
 			continue;
 
 	}
+}
+
+void execute(std::string input) {
+    command cmd = parseCommand("test");
+
+}
+
+void execute(command cmd) {
+
 }
 
 shell::command shell::parseCommand(std::string input) {
@@ -32,21 +41,11 @@ shell::command shell::parseCommand(std::string input) {
    return cmd;
 }
 
-int execute(std::string input) {
-	command cmd;
-	cmd = shell::parseCommand("test");
-
-}
-
-int execute(command cmd) {
-
-}
-
 void shell::printPrompt() {
 
 	char hostname[128];
 	gethostname(hostname, 128);
-	std::cout 	<< getenv("USER") << "@" << hostname 
+	std::cout 	<< getenv("USER") << "@" << hostname
 				<< " " << getenv("HOME") << ": ";
 }
 

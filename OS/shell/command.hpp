@@ -3,19 +3,73 @@
 
 class command {
 public:
+
+    /*
+     For testing purposes
+     */
     command();
-    int cd();
-    int clr();
-    int dir();
-    int environ();
-    int echo();
-    int exit();
-    int help();
-    int jobs();
-    int killall();
-    int logout();
-    int pause();
-    int quit();
+
+    /*
+     Navigates to a directory
+     */
+    void cd();
+
+    /*
+     Clears the screen
+     */
+    void clr();
+
+    /*
+     Lists the items in the current directory
+     */
+    void dir();
+
+    /*
+     Lists all environment strings
+    */
+    void environ();
+
+    /*
+     Displays a comment on the screen. Invoked using
+     echo comment
+    */
+    void echo();
+
+    /*
+     Quits the shell after closing all background processes
+    */
+    void exit();
+
+    /*
+     Displays the manual
+    */
+    void help();
+
+    /*
+     Lists all background processes
+    */
+    void jobs();
+
+    /*
+     Kills all background processes
+    */
+    void killall();
+
+    /*
+     Same as exit
+    */
+    void logout();
+
+    /*
+     Pauses operation of the shell until <ENTER> key
+    */
+    void pause();
+
+    /*
+     Same as exit
+    */
+    void quit();
+
 };
 
 #endif
