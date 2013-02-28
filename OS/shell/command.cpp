@@ -1,7 +1,5 @@
 #include "command.hpp"
 
-#include <iostream>
-
 command::command() {
 	std::cout << "command made";
 }
@@ -12,7 +10,7 @@ void command::cd() {
 
 
 void command::clr() {
-
+	
 }
 
 

@@ -1,3 +1,8 @@
+#include <iostream>
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/types.h>
+
 #ifndef INCLUDED_COMMAND_HPP
 #define INCLUDED_COMMAND_HPP
 

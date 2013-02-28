@@ -1,10 +1,6 @@
 #include "shell.hpp"
 #include "command.hpp"
 
-#include <unistd.h>
-#include <iostream>
-#include <cstdlib>
-#include <string>
 
 shell::shell() {
 
@@ -29,24 +25,32 @@ void shell::init() {
 
 void shell::execute(std::string input) {
 
-    command cmd = parseCommand(input);
+    execute(parseCommand(input));
 
 }
 
 void shell::execute(command cmd) {
-
+	//execvp(cmd.args[0].c_str(), cmd.args.size());
 }
 
 shell::command shell::parseCommand(std::string input) {
 
     command cmd;
 
-    if (input.back() == '&') {
+    if (input[input.length()-1] == '&') {
         cmd.background = true;
         input = input.substr(0, input.size()-1);
     }
+    else 
+    	cmd.background = false;
 
-    std::cout << "INPUT" << input << std::endl;
+	std::stringstream strstr(input);
+
+	// use stream iterators to copy the stream to the vector as whitespace separated strings
+	std::istream_iterator<std::string> it(strstr);
+	std::istream_iterator<std::string> end;
+	std::vector<std::string> args(it, end);
+	cmd.args = args; 
 
     return cmd;
 }
