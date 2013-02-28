@@ -14,8 +14,9 @@ public:
      Data structure for the commands
      */
     struct command {
-        std::string name;           //name of the command
-        std::vector<std::string> args;   //each of the commands
+        std::string name;               // Name of the command
+        std::vector<std::string> args;  // Each of the commands
+        bool background ;                // If the job is for BG
     };
 
     /*

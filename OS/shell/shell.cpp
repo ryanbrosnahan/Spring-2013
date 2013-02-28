@@ -23,29 +23,39 @@ void shell::init() {
 		if (input.empty())
 			continue;
 
+        execute(input);
+
 	}
 }
 
-void execute(std::string input) {
-    command cmd = parseCommand("test");
+void shell::execute(std::string input) {
+
+    command cmd = parseCommand(input);
 
 }
 
-void execute(command cmd) {
+void shell::execute(command cmd) {
 
 }
 
 shell::command shell::parseCommand(std::string input) {
 
-   command cmd;
-   return cmd;
+    command cmd;
+
+    if (input.back() == '&') {
+        return cmd;
+    }
+
+    std::array<int, 10> test;
+
+    return cmd;
 }
 
 void shell::printPrompt() {
 
 	char hostname[128];
 	gethostname(hostname, 128);
-	std::cout 	<< getenv("USER") << "@" << hostname
-				<< " " << getenv("HOME") << ": ";
+	std::cout 	<< "\e[0;32m" << getenv("USER") << "@" << hostname
+				<< " \e[0;33m" << getenv("PWD") << '\n' << "\e[00m" << "$ ";
 }
 
