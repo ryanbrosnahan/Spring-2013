@@ -6,7 +6,6 @@
 #include <cstdlib>
 #include <string>
 
-
 shell::shell() {
 
 }
@@ -43,10 +42,11 @@ shell::command shell::parseCommand(std::string input) {
     command cmd;
 
     if (input.back() == '&') {
-        return cmd;
+        cmd.background = true;
+        input = input.substr(0, input.size()-1);
     }
 
-    std::array<int, 10> test;
+    std::cout << "INPUT" << input << std::endl;
 
     return cmd;
 }
