@@ -31,13 +31,13 @@ Unobserved hetergeneity (AKA omitted variable bias)
 
 In summary:
 
-1. Intro
-2. Lit Review
-3. Model
-4. Data
-5. Methodology
-6. Results
-7. Conclusions
+ 1. Intro
+ 2. Lit Review
+ 3. Model
+ 4. Data
+ 5. Methodology
+ 6. Results
+ 7. Conclusions
 
 ##Presentation:
 
@@ -49,12 +49,11 @@ Literature Review
 
 Intro - Longer, more expanded concept paper
 Literature Review - Avoid being an annotaed bibliography
-			- Research hypothesis
-			- model
-			- question
-			- conclusion
-			- results
-			- 
+			 - Research hypothesis
+			 - model
+			 - question
+			 - conclusion
+			 - results
 
 Theoretical Model - Likely similar to the model presented in class. At least a long paragraph on the model, if not more.
 
@@ -68,10 +67,10 @@ x1B1 - x2B2 > u2 - u1
 (u is error)
 
 Assumptions:
-1. Y and X are always observable
-2. u and e (e = u2 - u1) are independent of x. I.e. no omitted variable bias
-3. e is normally distributed
-4. E(u1|e) = h where h represents the correlation measure between u1 and e
+ 1. Y and X are always observable
+ 2. u and e (e = u2 - u1) are independent of x. I.e. no omitted variable bias
+ 3. e is normally distributed
+ 4. E(u1|e) = h where h represents the correlation measure between u1 and e
 
 E(Log(W0)|Y=1) = x1B1 + h p
 p (gamma) is the inverse Mills ration used in hazard functions
@@ -79,9 +78,9 @@ h p captures the selection bias.
 
 
 Hackit Procedure:
-1. Run a probit on the whole set to see probability that a worker, works
-2. SAS can compute an inverse Mill's ratio (h above, aka lambda)
-3. Run OLS on Log(W0) = x1B1 + h p + u1
+ 1. Run a probit on the whole set to see probability that a worker, works
+ 2. SAS can compute an inverse Mill's ratio (h above, aka lambda)
+ 3. Run OLS on Log(W0) = x1B1 + h p + u1
 	1. Fix any heteroskedasticity
 	2. t test on p (gamma) will tell you is sample selection bias is significant
 
@@ -99,4 +98,17 @@ Create a set of dummy variables for the intercept for each entity (e.g. each cou
 
 Alternatively, PROC PANEL.
 
-## 2-Way Fixed Effects
+## Fixed Effects
+
+F-test is used to determine if the intercepts are really different from each other. H0 = Coeficcients of dummy variables are all equal.
+
+F-test = { RSS(restricted) - RSS(full) } (n - k) (q) / RSS(full)
+
+ - RSS restricted is for the Pooled model
+ - RSS full is for the fixed effect model
+ - q is the number of restrictions. If you hae 15 countries, q = 14.
+ - n - k is the degrees of freedom in the fixed effect
+
+** Two-way Fixed Effect **
+
+Add a time-trend variable in addition to the normal One-way model above. This let's each time period have a different, non-constant, effect on the model from period to period. One-way forces each time period to have the same effect for each year.
