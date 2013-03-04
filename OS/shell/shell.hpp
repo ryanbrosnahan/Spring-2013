@@ -8,6 +8,7 @@
 #include <istream>
 #include <iterator>
 #include <sstream>
+#include <cstring>
 
 #ifndef INCLUDED_SHELL_HPP
 #define INCLUDED_SHELL_HPP
@@ -22,7 +23,7 @@ public:
      */
     struct command {
         std::string name;               // Name of the command
-        std::vector<std::string> args;  // Each of the commands
+        std::vector<const char*> args;  // Each of the commands
         bool background ;               // If the job is for BG
     };
 
@@ -59,7 +60,12 @@ public:
      */
     void printPrompt();
 
-        /*
+    /*
+
+     */
+    bool executeLocal(command);
+
+    /*
      Navigates to a directory
      */
     void cd();
@@ -119,6 +125,7 @@ public:
      Same as exit
     */
     void quit();
+
 };
 
 #endif
