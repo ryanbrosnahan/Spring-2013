@@ -1,5 +1,4 @@
 #include "shell.hpp"
-#include "command.hpp"
 
 
 shell::shell() {
@@ -41,7 +40,7 @@ shell::command shell::parseCommand(std::string input) {
         cmd.background = true;
         input = input.substr(0, input.size()-1);
     }
-    else 
+    else
     	cmd.background = false;
 
 	std::stringstream strstr(input);
@@ -50,7 +49,7 @@ shell::command shell::parseCommand(std::string input) {
 	std::istream_iterator<std::string> it(strstr);
 	std::istream_iterator<std::string> end;
 	std::vector<std::string> args(it, end);
-	cmd.args = args; 
+	cmd.args = args;
 
     return cmd;
 }
@@ -61,5 +60,64 @@ void shell::printPrompt() {
 	gethostname(hostname, 128);
 	std::cout 	<< "\e[0;32m" << getenv("USER") << "@" << hostname
 				<< " \e[0;33m" << getenv("PWD") << '\n' << "\e[00m" << "$ ";
+}
+
+void shell::cd() {
+
+}
+
+
+void shell::clr() {
+
+}
+
+
+void shell::dir() {
+
+}
+
+
+void shell::environ() {
+
+}
+
+
+void shell::echo() {
+
+}
+
+
+void shell::exit() {
+
+}
+
+
+void shell::help() {
+
+}
+
+
+void shell::jobs() {
+
+}
+
+
+void shell::killall() {
+
+}
+
+
+void shell::logout() {
+
+}
+
+
+void shell::pause() {
+
+}
+
+
+void shell::quit() {
+
 }
 
