@@ -28,12 +28,26 @@ void shell::execute(std::string input) {
 
 }
 
-void shell::execute(command cmd) {
+int shell::execute(command cmd) {
 
+    int status;
     pid_t child_pid = fork();
 
-    if (child_pid == 0)
-	   execvp(cmd.args[0], (char * const *) & cmd.args[0]);
+    if (child_pid == 0) {
+	    execvp(cmd.args[0], (char * const *) & cmd.args[0]);
+
+        // If the command wasn't found, cout that there was an issue
+        std::cout << "Unknown command, try \"help\"" << std::endl;
+    }
+    else {
+        if (cmd.background) {
+
+            //jobs.push_back({child_pid, cmd});
+            return status;
+        }
+
+        wait(&status);
+    }
 
 }
 
@@ -114,7 +128,7 @@ void shell::help() {
 }
 
 
-void shell::jobs() {
+void shell::listjobs() {
 
 }
 

@@ -27,6 +27,13 @@ public:
         bool background ;               // If the job is for BG
     };
 
+    struct job {
+        int pid;
+        command cmd;
+    };
+
+    std::vector<job> jobs;
+
     /*
      Constructor
      */
@@ -46,7 +53,7 @@ public:
     /*
      Executes the command by forking
      */
-    void execute(command);
+    int execute(command);
 
     /*
      Takes the string of the input and parses it into the command
@@ -104,7 +111,7 @@ public:
     /*
      Lists all background processes
     */
-    void jobs();
+    void listjobs();
 
     /*
      Kills all background processes
