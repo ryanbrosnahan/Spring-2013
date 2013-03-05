@@ -5,6 +5,6 @@ int main(int argc, char *argv[]) {
     shell->init();
     delete shell;
 
-    printf("\n\n shell: Terminating successfully\n");
+    std::cout << "shell: Terminating successfully" << std::endl;
     return 0;
 }
