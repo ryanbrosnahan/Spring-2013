@@ -97,7 +97,7 @@ public:
      Displays a comment on the screen. Invoked using
      echo comment
     */
-    void echo();
+    void echo(command);
 
     /*
      Quits the shell after closing all background processes

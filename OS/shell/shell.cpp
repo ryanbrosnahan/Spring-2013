@@ -48,8 +48,8 @@ int shell::execute(command cmd) {
     else {
         if (cmd.background) {
 
-            wait(&status);
             jobs.push_back({child_pid, cmd});
+            wait(&status);
         }
     }
 
@@ -113,7 +113,7 @@ bool shell::executeLocal(command cmd) {
         return 1;
     }
     else if ( !std::strcmp(cmd.args[0], "echo") ) {
-        echo();
+        echo(cmd);
         return 1;
     }
     else if ( !std::strcmp(cmd.args[0], "exit") ) {
@@ -149,24 +149,22 @@ bool shell::executeLocal(command cmd) {
 }
 
 void shell::cd(command cmd) {
-    if (!cmd.args[1]) {
-        setenv("PWD", getenv("HOME"), 1);
-    }
-    else if ( !std::strcmp(cmd.args[1], ".") )
-        return;
-    else if ( !std::strcmp(cmd.args[1], "..") ) {
-        chdir("..");
-    }
+    if(cmd.args[1])
+        chdir(cmd.args[1]);
+
+    char pwd[1024];
+    getcwd(pwd, sizeof(pwd) - 1);
+    setenv("PWD", pwd, true);
 }
 
 
 void shell::clr() {
-
+    system("clear");
 }
 
 
 void shell::dir() {
-
+    system("dir -l");
 }
 
 
@@ -175,12 +173,13 @@ void shell::environ() {
 }
 
 
-void shell::echo() {
-
+void shell::echo(command cmd) {
+    std::cout << cmd.args[1] << '\n';
 }
 
 
 void shell::exit() {
+    killall();
 
 }
 
@@ -196,7 +195,10 @@ void shell::listjobs() {
 
 
 void shell::killall() {
-
+    while( !jobs.empty() ) {
+        kill(jobs.back().pid, SIGTERM);
+        jobs.pop_back();
+    }
 }
 
 
