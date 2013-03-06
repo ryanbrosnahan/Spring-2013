@@ -9,6 +9,7 @@
 #include <iterator>
 #include <sstream>
 #include <cstring>
+#include <stdlib.h>
 
 #ifndef INCLUDED_SHELL_HPP
 #define INCLUDED_SHELL_HPP
@@ -75,7 +76,7 @@ public:
     /*
      Navigates to a directory
      */
-    void cd();
+    void cd(command);
 
     /*
      Clears the screen

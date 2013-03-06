@@ -31,6 +31,11 @@ void shell::execute(std::string input) {
 int shell::execute(command cmd) {
 
     int status;
+
+    if (executeLocal(cmd)) {
+        return status;
+    }
+
     pid_t child_pid = fork();
 
     if (child_pid == 0) {
@@ -38,17 +43,17 @@ int shell::execute(command cmd) {
 
         // If the command wasn't found, cout that there was an issue
         std::cout << "Unknown command, try \"help\"" << std::endl;
+
     }
     else {
         if (cmd.background) {
 
-            //jobs.push_back({child_pid, cmd});
-            return status;
+            wait(&status);
+            jobs.push_back({child_pid, cmd});
         }
-
-        wait(&status);
     }
 
+    return status;
 }
 
 shell::command shell::parseCommand(std::string input) {
@@ -90,11 +95,68 @@ void shell::printPrompt() {
 }
 
 bool shell::executeLocal(command cmd) {
+
+    if ( !std::strcmp(cmd.args[0], "cd") ) {
+        cd(cmd);
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "clr") ) {
+        clr();
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "dir") ) {
+        dir();
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "environ") ) {
+        environ();
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "echo") ) {
+        echo();
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "exit") ) {
+        exit();
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "help") ) {
+        help();
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "jobs") ) {
+        listjobs();
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "killall") ) {
+        killall();
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "logout") ) {
+        logout();
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "pause") ) {
+        pause();
+        return 1;
+    }
+    else if ( !std::strcmp(cmd.args[0], "quit") ) {
+        quit();
+        return 1;
+    }
+
     return 0;
 }
 
-void shell::cd() {
-
+void shell::cd(command cmd) {
+    if (!cmd.args[1]) {
+        setenv("PWD", getenv("HOME"), 1);
+    }
+    else if ( !std::strcmp(cmd.args[1], ".") )
+        return;
+    else if ( !std::strcmp(cmd.args[1], "..") ) {
+        chdir("..");
+    }
 }
 
 
