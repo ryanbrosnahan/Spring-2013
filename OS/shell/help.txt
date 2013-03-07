@@ -1,0 +1,103 @@
+Shell(1)
+
+NAME
+    shell - A simple shell based on the linux bash shell
+
+SYNOPSIS
+    shell
+
+DESCRIPTION
+    shell is a simple shell that acts as a command line interpreter interface between Linux and a user making system calls. Shell also supports a number of simple built-in commands listed below. It also has the ability to multiple simultaneous background jobs via forking.
+
+OPTIONS
+    N/A
+
+FILES
+    ~/shell
+        The executable file to run the program
+
+    ~/help.txt
+        This help file
+
+BUILT-IN FUNCTIONS
+    cd
+        Change Directory - Changes the current working directory.
+
+        Invocation:
+            cd .. - go up a directory relative to present working directory
+            cd /path - go to a path relative to the main directory
+            cd path - go to a path relative to the present working directory
+
+    clr
+        Clear the screen
+
+        Invocation:
+            clr
+
+    dir
+        Gives a list of all items in the files in a directory
+
+        Invocation:
+            dir - list items in current directory
+            dir path - list items in a target path directory
+
+    environ
+        Gives the four environment variables
+
+        Invocation
+            environ
+
+    echo
+        Prints a statement to the terminal
+
+        Invocation
+            echo statement - prints the statement
+
+    exit
+        Exits the program
+
+        Invocation
+            exit
+
+    help
+        Brings up help manual
+
+        Invocation
+            help
+
+    jobs
+        Lists all jobs currently running and recently completed
+        Lists each job pid, status, and name
+
+        Invocation
+            jobs
+
+    killall
+        Kills all background processes, automatically invokec by exit, quit, and logout
+
+        Invocation
+            killall
+
+    logout
+        See exit
+
+    pause
+        Halts the program and waits for user to hit <ENTER> before continuing
+
+        Invocation
+            pause
+
+    quit
+        See exit
+
+RUNNING BACKGROUND PROCESSES
+    To run a program in the background, invoke the command with '&' apended.
+
+    Invocation examples
+        program flag parameter&
+
+        sleep 90&
+
+        top&
+
+    Use the "jobs" command to see a list of programs currently executing in the background.
