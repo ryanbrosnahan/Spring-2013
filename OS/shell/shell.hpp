@@ -12,8 +12,9 @@
 #include <stdlib.h>
 #include <fstream>
 #include <list>
+#include <algorithm>
 
-#define maxjobs 32
+#define maxjobs 3
 
 #ifndef INCLUDED_SHELL_HPP
 #define INCLUDED_SHELL_HPP
@@ -21,23 +22,25 @@
 class shell {
 private:
 
+    bool run;
+
 public:
 
     /*
      Data structure for the commands
      */
     struct command {
-        std::string name;               // Name of the command
-        std::vector<const char*> args;  // Each of the commands
         bool background;               // If the job is for BG
+        std::vector<const char*> args;  // Each of the commands
     };
 
     struct job {
-        int pid;
         command cmd;
+        int pid;
     };
 
-    std::vector<job> jobs;
+    std::list<job> jobs;
+
 
     /*
      Constructor
@@ -137,6 +140,11 @@ public:
      Same as exit
     */
     void quit();
+
+    /*
+     Purges completed jobs from the jobs vector
+    */
+    bool purgeJobs();
 
 };
 

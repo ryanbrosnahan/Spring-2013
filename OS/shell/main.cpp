@@ -1,10 +1,9 @@
 #include "shell.hpp"
 
-int main(int argc, char *argv[]) {
-    shell* shell;
-    shell->init();
-    delete shell;
+int main() {
+    shell shell;
+    shell.init();
 
-    std::cout << "shell: Terminating successfully" << std::endl;
+    std::cout << "shell: Terminated successfully" << '\n';
     return 0;
 }
