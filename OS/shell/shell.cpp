@@ -29,27 +29,33 @@ void shell::execute(std::string input) {
 
 int shell::execute(command cmd) {
 
-    int status;
+    int status = 0;
 
     if (executeLocal(cmd)) {
         return status;
     }
 
-    pid_t child_pid = fork();
+    int pid = fork();
 
-    if (child_pid == 0) {
-	    execvp(cmd.args[0], (char * const *) & cmd.args[0]);
+    if (pid == 0) {
 
-        // If the command wasn't found, cout that there was an issue
-        std::cout << "Unknown command, try \"help\"" << std::endl;
+        cmd.args.push_back(0);
+        execvp(cmd.args[0], (char * const *) &cmd.args);
 
+        std::cout << "Unknown command " << cmd.name << "was not found, try \"help\".";
+        exit();
     }
     else {
-        if (cmd.background) {
+        if (cmd.background){
 
-            jobs.push_back({child_pid, cmd});
-            wait(&status);
+                job thisJob = {pid, cmd};
+                //jobs.push_back(thisJob);
+                std::cout << "[" << pid << "]+ in background   " << cmd.args[0] << '\n';
+
+                return status;
         }
+
+        wait(&status);
     }
 
     return status;
@@ -180,6 +186,7 @@ void shell::environ() {
     else
         std::cout << "Could not resolve path of shell" << '\n';
 
+    // print the other variables too
     std::cout << "USER = " << getenv("USER") << '\n';
     std::cout << "PWD = " << getenv("PWD") << '\n';
     std::cout << "HOME = " << getenv("HOME") << '\n';
@@ -206,6 +213,15 @@ void shell::help() {
 
 void shell::listjobs() {
 
+    std::cout << "JOBS" << '\n';
+
+    for (auto job : jobs)
+        std::cout << "JOB: " << job.pid << '\n';
+
+/*
+    for (unsigned int i = 0; i < jobs.size() - 1; i++)
+        std::cout << "pid: " << jobs[i].pid
+                << " | command: " << jobs[i].cmd.args[0] << '\n';*/
 }
 
 

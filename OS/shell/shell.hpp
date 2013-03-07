@@ -11,6 +11,9 @@
 #include <cstring>
 #include <stdlib.h>
 #include <fstream>
+#include <list>
+
+#define maxjobs 32
 
 #ifndef INCLUDED_SHELL_HPP
 #define INCLUDED_SHELL_HPP
@@ -26,7 +29,7 @@ public:
     struct command {
         std::string name;               // Name of the command
         std::vector<const char*> args;  // Each of the commands
-        bool background ;               // If the job is for BG
+        bool background;               // If the job is for BG
     };
 
     struct job {
