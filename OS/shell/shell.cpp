@@ -2,7 +2,6 @@
 
 
 shell::shell() {
-
 }
 
 void shell::init() {
@@ -170,6 +169,21 @@ void shell::dir() {
 
 void shell::environ() {
 
+    // Path to the shell
+    char buffer[1024];
+    ssize_t len = ::readlink("/proc/self/exe", buffer, sizeof(buffer)-1);
+    if (len != -1) {
+        // truncating the buffer to the actual length needed
+        buffer[len] = '\0';
+        std::cout << "SHELL = " << std::string(buffer) << '\n';
+    }
+    else
+        std::cout << "Could not resolve path of shell" << '\n';
+
+    std::cout << "USER = " << getenv("USER") << '\n';
+    std::cout << "PWD = " << getenv("PWD") << '\n';
+    std::cout << "HOME = " << getenv("HOME") << '\n';
+
 }
 
 
@@ -185,7 +199,8 @@ void shell::exit() {
 
 
 void shell::help() {
-
+    //std::string help =
+   // execute("vim help.txt");
 }
 
 

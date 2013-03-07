@@ -10,6 +10,7 @@
 #include <sstream>
 #include <cstring>
 #include <stdlib.h>
+#include <fstream>
 
 #ifndef INCLUDED_SHELL_HPP
 #define INCLUDED_SHELL_HPP
