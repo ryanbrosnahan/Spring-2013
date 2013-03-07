@@ -30,8 +30,9 @@ public:
      Data structure for the commands
      */
     struct command {
-        bool background;               // If the job is for BG
+        bool background;                // If the job is for BG
         std::vector<const char*> args;  // Each of the commands
+        std::string name;               // Name of the command
     };
 
     struct job {
@@ -40,7 +41,6 @@ public:
     };
 
     std::list<job> jobs;
-
 
     /*
      Constructor
@@ -93,7 +93,7 @@ public:
     /*
      Lists the items in the current directory
      */
-    void dir();
+    void dir(command);
 
     /*
      Lists all environment strings

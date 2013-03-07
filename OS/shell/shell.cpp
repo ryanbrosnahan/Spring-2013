@@ -1,6 +1,5 @@
 #include "shell.hpp"
 
-
 shell::shell() {
     run = true;
 }
@@ -60,11 +59,9 @@ int shell::execute(command cmd) {
                 job thisJob = {cmd, pid};
 
                 jobs.push_back(thisJob);
-                std::cout << "nametest: " << jobs.front().cmd.args[0] << '\n';
-                listjobs();
+
                 std::cout << "[" << pid << "]+ in background   " << cmd.args[0] << '\n';
 
-                std::cout << "back of jobs " << jobs.back().cmd.args[0] << '\n';
                 return status;
         }
 
@@ -100,6 +97,7 @@ shell::command shell::parseCommand(std::string input) {
         tempConstargs.push_back(tempStringargs[i].c_str());
 
     cmd.args = tempConstargs;
+    cmd.name = cmd.args[0];
 
     return cmd;
 }
@@ -128,8 +126,11 @@ void shell::clr() {
 }
 
 
-void shell::dir() {
-    system("dir -l");
+void shell::dir(command cmd) {
+
+    std::string path = cmd.args.size() > 1 ? cmd.args[1] : ".";
+
+    system( ("ls -l " + path).c_str() );
 }
 
 
@@ -189,9 +190,9 @@ void shell::listjobs() {
 
     for (std::list<job>::iterator it=jobs.begin(); it != jobs.end(); ++it) {
 
-        std::cout << "status ";
+        std::cout << "status: ";
         std::cout << ( (waitpid(it->pid, 0, WNOHANG) == 0 ) ? "running " : "complete ");
-        std::cout << it->pid << " | command: " << *it->cmd.args.front() << '\n';
+        std::cout << "| pid: " << it->pid << " | command: " << it->cmd.name << '\n';
     }
 
     if (purgeJobs())
@@ -249,53 +250,53 @@ bool shell::purgeJobs() {
     return purged;
 }
 
-bool shell::executeLocal(command cmd) {
+bool shell::executeLocal(command c) {
 
-    if ( !std::strcmp(cmd.args[0], "cd") ) {
-        cd(cmd);
+    if ( !std::strcmp(c.args[0], "cd") ) {
+        cd(c);
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "clr") ) {
+    else if ( !std::strcmp(c.args[0], "clr") ) {
         clr();
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "dir") ) {
-        dir();
+    else if ( !std::strcmp(c.args[0], "dir") ) {
+        dir(c);
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "environ") ) {
+    else if ( !std::strcmp(c.args[0], "environ") ) {
         environ();
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "echo") ) {
-        echo(cmd);
+    else if ( !std::strcmp(c.args[0], "echo") ) {
+        echo(c);
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "exit") ) {
+    else if ( !std::strcmp(c.args[0], "exit") ) {
         exit();
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "help") ) {
+    else if ( !std::strcmp(c.args[0], "help") ) {
         help();
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "jobs") ) {
+    else if ( !std::strcmp(c.args[0], "jobs") ) {
         listjobs();
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "killall") ) {
+    else if ( !std::strcmp(c.args[0], "killall") ) {
         killall();
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "logout") ) {
+    else if ( !std::strcmp(c.args[0], "logout") ) {
         logout();
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "pause") ) {
+    else if ( !std::strcmp(c.args[0], "pause") ) {
         pause();
         return 1;
     }
-    else if ( !std::strcmp(cmd.args[0], "quit") ) {
+    else if ( !std::strcmp(c.args[0], "quit") ) {
         quit();
         return 1;
     }
