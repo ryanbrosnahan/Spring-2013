@@ -115,6 +115,9 @@ void shell::cd(command cmd) {
     if(cmd.args[1])
         chdir(cmd.args[1]);
 
+    else
+        chdir(getenv("HOME"));
+
     char pwd[1024];
     getcwd(pwd, sizeof(pwd) - 1);
     setenv("PWD", pwd, true);
