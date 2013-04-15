@@ -32,6 +32,7 @@ void* paperSmoker(void* arg) {
         sem_post(&agent);
     }
 
+    pthread_join(&smokers[arg], NULL;)
     return NULL;
 
 }
