@@ -1,11 +1,12 @@
 ##
 # Build hello
 
-all: test
-	./test
+all: smokers
+	./smokers
 
-main: $(wildcard *.cpp)
-	g++ -std=c++0x $^ -o main
+smokers: smokers.c
+	gcc smokers.c -lrt -std=gnu99 -pthread -o smokers
 
 clean:
-	rm -f *.o *.exe
+	rm -f *.o *.exe smokers
+
