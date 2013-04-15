@@ -7,12 +7,20 @@
 #include <errno.h>
 
 #define numSmokers 6
+#define numAgents 3
 
 // Semaphores for the agent and the three items
 sem_t agent;
 sem_t tobaccoMatch;
 sem_t matchPaper;
 sem_t paperTobacco;
+
+sem_t tobaccoMatch;
+sem_t matchPaper;
+sem_t paperTobacco;
+
+pthread_t smokers[numSmokers];
+pthread_t agents[numAgents];
 
 // Smoker with paper
 void* paperSmoker(void* arg) {
@@ -32,7 +40,6 @@ void* paperSmoker(void* arg) {
         sem_post(&agent);
     }
 
-    pthread_join(&smokers[arg], NULL;)
     return NULL;
 
 }
@@ -51,6 +58,7 @@ void* tobaccoSmoker(void* arg) {
         // Give back the Agent
         sem_post(&agent);
     }
+
     return NULL;
 }
 
@@ -68,8 +76,29 @@ void* matchSmoker(void* arg) {
         // Give back the Agent
         sem_post(&agent);
     }
-    return NULL;
 
+    return NULL;
+}
+
+void* paperTobaccoAgent(void* arg) {
+    while(1) {
+        nanosleep((struct timespec[]){{0, rand() % 200000000}}, NULL);
+        sem_wait(&agent);
+    }
+}
+
+void* matchPaperAgent(void* arg) {
+    while(1) {
+        nanosleep((struct timespec[]){{0, rand() % 200000000}}, NULL);
+        sem_wait(&agent);
+    }
+}
+
+void* tobaccoMatchAgent(void* arg) {
+    while(1) {
+        nanosleep((struct timespec[]){{0, rand() % 200000000}}, NULL);
+        sem_wait(&agent);
+    }
 }
 
 int main() {
@@ -83,19 +112,36 @@ int main() {
     // Seeding the RNG for the agent
     srand(time(NULL));
 
+    // IDs for the smokers
+    int smokerID[6];
+    for(int i = 0; i < 6; ++i)
+        smokerID[i] = i;
+
     // Create threads of smokers
-    pthread_t smokers[numSmokers];
-    if(pthread_create(&smokers[0], NULL, paperSmoker, NULL) == EAGAIN)
+    if(pthread_create(&smokers[0], NULL, paperSmoker, &smokerID[0]) == EAGAIN)
         perror("Insufficent resources to create thread\n");
-    if(pthread_create(&smokers[1], NULL, paperSmoker, NULL) == EAGAIN)
+    if(pthread_create(&smokers[1], NULL, paperSmoker, &smokerID[1]) == EAGAIN)
         perror("Insufficent resources to create thread\n");
-    if(pthread_create(&smokers[2], NULL, matchSmoker, NULL) == EAGAIN)
+    if(pthread_create(&smokers[2], NULL, matchSmoker, &smokerID[2]) == EAGAIN)
         perror("Insufficent resources to create thread\n");
-    if(pthread_create(&smokers[3], NULL, matchSmoker, NULL) == EAGAIN)
+    if(pthread_create(&smokers[3], NULL, matchSmoker, &smokerID[3]) == EAGAIN)
         perror("Insufficent resources to create thread\n");
-    if(pthread_create(&smokers[4], NULL, tobaccoSmoker, NULL) == EAGAIN)
+    if(pthread_create(&smokers[4], NULL, tobaccoSmoker, &smokerID[4]) == EAGAIN)
         perror("Insufficent resources to create thread\n");
-    if(pthread_create(&smokers[5], NULL, tobaccoSmoker, NULL) == EAGAIN)
+    if(pthread_create(&smokers[5], NULL, tobaccoSmoker, &smokerID[5]) == EAGAIN)
+        perror("Insufficent resources to create thread\n");
+
+    // IDs for the agents
+    int agentID[3];
+    for(int i = 0; i < 3; ++i)
+        agentID[i] = i;
+
+    // Create threads of agents
+    if(pthread_create(&agents[0], NULL, paperTobaccoAgent, &agentID[0]) == EAGAIN)
+        perror("Insufficent resources to create thread\n");
+    if(pthread_create(&agents[1], NULL, matchPaperAgent, &agentID[1]) == EAGAIN)
+        perror("Insufficent resources to create thread\n");
+    if(pthread_create(&agents[2], NULL, tobaccoMatchAgent, &agentID[2]) == EAGAIN)
         perror("Insufficent resources to create thread\n");
 
     // The "Agent" will run an arbitrary 20 times before exiting. This could be
@@ -117,8 +163,6 @@ int main() {
 
     }
 
-    for (int i = 0; i < numSmokers; ++i)
-        pthread_join(smokers[i], NULL);
 
     printf("All threads stopped, exit success\n");
 
