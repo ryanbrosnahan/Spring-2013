@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <errno.h>
 #include <stdbool.h>
+#include <unistd.h>
 
 #define numSmokers 6
 #define numAgents 3
@@ -114,7 +115,7 @@ void* paperAgent(void* arg) {
         sem_post(&paper);
         sem_post(&tobacco);
 
-        printf("Agent %d giving out tobacco \n", *(int*)arg);
+        printf("Agent %d giving out tobacco and paper \n", *(int*)arg);
     }
 
     return NULL;
@@ -128,7 +129,7 @@ void* matchAgent(void* arg) {
         sem_post(&paper);
         sem_post(&match);
 
-        printf("Agent %d giving out match \n", *(int*)arg);
+        printf("Agent %d giving out match and paper \n", *(int*)arg);
     }
 
     return NULL;
@@ -141,7 +142,7 @@ void* tobaccoAgent(void* arg) {
         sem_post(&tobacco);
         sem_post(&match);
 
-        printf("Agent %d giving out tobacco \n", *(int*)arg);
+        printf("Agent %d giving out tobacco and match \n", *(int*)arg);
     }
 
     return NULL;
