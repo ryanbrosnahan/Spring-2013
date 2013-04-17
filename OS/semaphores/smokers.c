@@ -12,7 +12,6 @@
 #define numPushers 3
 
 sem_t agent;
-sem_t pusher;
 sem_t mutex;
 
 // on the table
@@ -44,7 +43,7 @@ void* paperSmoker(void* arg) {
 
         // If you get them, smoke
         printf("Smoker %d with paper received other items. Now smoking for the %d time... \n", *(int*)arg, i+1);
-        nanosleep((struct timespec[]){{0, rand() % 50000000}}, NULL);
+        usleep(rand() % 50000);
         printf("Smoker %d with paper done smoking \n", *(int*)arg);
 
         // Give back the Agent
@@ -65,7 +64,7 @@ void* tobaccoSmoker(void* arg) {
 
         sem_wait(&tobaccosem);
         printf("Smoker %d with tobacco received other items. Now smoking for the %d time... \n", *(int*)arg, i+1);
-        nanosleep((struct timespec[]){{0, rand() % 50000000}}, NULL);
+        usleep(rand() % 50000);
         printf("Smoker %d with tobacco done smoking \n", *(int*)arg);
 
         // Give back the Agent
@@ -85,7 +84,7 @@ void* matchSmoker(void* arg) {
 
         sem_wait(&matchsem);
         printf("Smoker %d with match received other items. Now smoking for the %d time... \n", *(int*)arg, i+1);
-        nanosleep((struct timespec[]){{0, rand() % 50000000}}, NULL);
+        usleep(rand() % 50000);
         printf("Smoker %d with match done smoking \n", *(int*)arg);
 
         // Give back the Agent
@@ -101,7 +100,7 @@ void* matchSmoker(void* arg) {
 /*-----------------------------------AGENTS--------------------------*/
 void* paperAgent(void* arg) {
     for(int i = 0; i < 6; ++i) {
-        nanosleep((struct timespec[]){{0, rand() % 200000000}}, NULL);
+        usleep(rand() % 200000);
         sem_wait(&agent);
         sem_post(&paper);
         sem_post(&tobacco);
@@ -114,7 +113,7 @@ void* paperAgent(void* arg) {
 
 void* matchAgent(void* arg) {
     for(int i = 0; i < 6; ++i) {
-        nanosleep((struct timespec[]){{0, rand() % 200000000}}, NULL);
+        usleep(rand() % 200000);
 
         sem_wait(&agent);
         sem_post(&paper);
@@ -128,7 +127,7 @@ void* matchAgent(void* arg) {
 
 void* tobaccoAgent(void* arg) {
     for(int i = 0; i < 6; ++i) {
-        nanosleep((struct timespec[]){{0, rand() % 200000000}}, NULL);
+        usleep(rand() % 200000);
         sem_wait(&agent);
         sem_post(&tobacco);
         sem_post(&match);
