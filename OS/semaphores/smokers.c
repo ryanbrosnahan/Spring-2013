@@ -43,11 +43,14 @@ void* paperSmoker(void* arg) {
 
         // If you get them, smoke
         printf("Smoker %d with paper received other items. Now smoking for the %d time... \n", *(int*)arg, i+1);
+
         usleep(rand() % 50000);
-        printf("Smoker %d with paper done smoking \n", *(int*)arg);
 
         // Give back the Agent
         sem_post(&agent);
+
+        printf("Smoker %d with paper done smoking \n", *(int*)arg);
+        usleep(rand() % 50000);
     }
 
     printf("Smoker %d has smoked 3 times and is leaving \n", *(int*)arg);
@@ -64,11 +67,14 @@ void* tobaccoSmoker(void* arg) {
 
         sem_wait(&tobaccosem);
         printf("Smoker %d with tobacco received other items. Now smoking for the %d time... \n", *(int*)arg, i+1);
+
         usleep(rand() % 50000);
-        printf("Smoker %d with tobacco done smoking \n", *(int*)arg);
 
         // Give back the Agent
         sem_post(&agent);
+
+        printf("Smoker %d with tobacco done smoking \n", *(int*)arg);
+        usleep(rand() % 50000);
     }
 
     printf("Smoker %d has smoked 3 times and is leaving \n", *(int*)arg);
@@ -84,11 +90,14 @@ void* matchSmoker(void* arg) {
 
         sem_wait(&matchsem);
         printf("Smoker %d with match received other items. Now smoking for the %d time... \n", *(int*)arg, i+1);
+
         usleep(rand() % 50000);
-        printf("Smoker %d with match done smoking \n", *(int*)arg);
 
         // Give back the Agent
         sem_post(&agent);
+
+        printf("Smoker %d with match done smoking \n", *(int*)arg);
+        usleep(rand() % 50000);
     }
 
     printf("Smoker %d has smoked 3 times and is leaving \n", *(int*)arg);
