@@ -47,6 +47,10 @@ bool greaterThan(elephant A, elephant B) {
     return ( (A.weight > B.weight) && (A.iq < B.iq) );
 }
 
+bool vectComp(std::vector<elephant> A, std::vector<elephant> B) {
+    return (A.size() > B.size());
+}
+
 void printSV(std::vector< std::vector<elephant> > outer) {
 
     for(int i = 0; i < outer.size(); ++i) {
@@ -57,8 +61,47 @@ void printSV(std::vector< std::vector<elephant> > outer) {
     }
 }
 
+/*
+  returns the index of the largest sized subvector, given a reference to see which ones we are
+  finding the "max" of. This would make more sense if done recursively. returns -1 if the reference
+  has no subvector.
+ */
+int max(std::vector< std::vector<elephant > > vect, int ref) {
+
+    // figure out which ones are being searched
+    std::vector<int> ops;
+    if (ref == -1)
+        for (int i = 0; i < vect.size(); i++)
+            ops.push_back(i);
+    else
+        for (int i = 1; i < vect[ref].size(); i++)
+            ops.push_back(vect[ref][i].index);
+
+    // for testing, prints out the subvectors from which we would look for the largest
+    for(auto n = ops.begin(); n < ops.end(); ++n)
+        std::cout << "ops: " << *n << std::endl;
+
+    // if the reference subvector has no arrows going to it
+    if(ops.size() == 0)
+        return -1;
+
+    // find the max of the given choices
+    int max = ops[0];
+    for(auto i = ops.begin(); i < ops.end(); ++i) {
+        std::cout << "temp max = " << max <<std::endl;
+        if( vect[*i].size() > vect[max].size())
+            max = *i;
+    }
+
+
+}
+
+
 
 void getLongest() {
+
+    std::cout << "Generating DAG: " << std::endl << std::endl;
+
     std::vector< std::vector<elephant > >  forwardList;
 
     // the outer part of forwardList
@@ -81,11 +124,18 @@ void getLongest() {
         forwardList.push_back(tempInner);
     }
 
-    printSV(forwardList);
+    std::sort(forwardList.begin(), forwardList.end(), vectComp);
 
+    printSV(forwardList);
+    // to store the result
+    std::vector<elephant> bestPath;
+
+    bestPath.push_back(forwardList[0][0]);
 
 
 }
+
+
 
 
 int main() {
