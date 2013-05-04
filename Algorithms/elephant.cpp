@@ -93,6 +93,8 @@ int max(std::vector< std::vector<elephant > > vect, int ref) {
             max = *i;
     }
 
+    std::cout << "final max: " << max;
+
 
 }
 
@@ -132,6 +134,7 @@ void getLongest() {
 
     bestPath.push_back(forwardList[0][0]);
 
+    max(forwardList, -1);
 
 }
 
