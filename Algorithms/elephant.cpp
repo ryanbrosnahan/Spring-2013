@@ -33,10 +33,27 @@ void getData() {
 }
 
 /*
+ Takes a vector of the longest path of elephants and writes it to the file (reversing the order)
+ */
+void writeout(std::vector<elephant> vec) {
+    std::ofstream outfile("e.out");
+    outfile << vec.size() << '\n';
+
+    int size = vec.size();
+    for(int i = 0; i < size ; ++i) {
+        outfile << vec.back().index << '\n';
+        vec.pop_back();
+    }
+
+    outfile.close();
+}
+
+
+/*
   For testing purposes, lists all elements that were read form e.in
  */
 void printV() {
-    for(std::vector<elephant>::iterator i = elephants.begin(); i != elephants.end(); ++i)
+    for(auto i = elephants.begin(); i != elephants.end(); ++i)
         std::cout << i->index << " weight: " << i->weight << " IQ: " << i->iq << std::endl;
 }
 
@@ -97,9 +114,13 @@ int max(std::vector< std::vector<elephant > > vect, int ref) {
                 return i;
         }
     }
+    return -2;
 
 }
 
+/*
+ unused
+ */
 int find(std::vector< std::vector<elephant > >  vec, int ref) {
     int index;
     for(int i = 0; i < vec.size(); ++i)
@@ -107,8 +128,12 @@ int find(std::vector< std::vector<elephant > >  vec, int ref) {
             index = i;
 }
 
+/*
+ Takes the data found from e.in and figures out the order
+ */
 void getLongest() {
 
+    // Creates the DAG and cout's the result; used for testing only
     std::cout << "Generating DAG: " << std::endl << std::endl;
 
     std::vector< std::vector<elephant > >  forwardList;
@@ -133,29 +158,28 @@ void getLongest() {
         forwardList.push_back(tempInner);
     }
 
+    // sorting makes it much easier to work with and reduces searching time in the future, resulting in a net
+    // improvement in performance
     std::sort(forwardList.begin(), forwardList.end(), vectComp);
 
     printSV(forwardList);
     std::cout << std::endl;
 
+    // The dynamic programming part, stick the elephants on the ordered vector in the right order
     std::vector<elephant> ordered;
-/*    int Max = max(forwardList, -1);
 
-    ordered.push_back(forwardList[Max][0]);
+    int i = -1;
+    while(true) {
+        i = max(forwardList, i);
+        if (i == -2) break;
+        ordered.push_back(forwardList[i][0]);
+    }
 
-    int tempMax = max(forwardList, max(forwardList, Max));
-    ordered.push_back(forwardList[tempMax][0]);*/
-
-    std::cout << max(forwardList, -1)  << std::endl;
-    ordered.push_back(forwardList[0][0]);
-    std::cout << max(forwardList, 0) << std::endl;
-    ordered.push_back(forwardList[3][0]);
-    std::cout << max(forwardList, 3) << std::endl;
-    ordered.push_back(forwardList[6][0]);
-    std::cout << max(forwardList, 6) << std::endl;
-    ordered.push_back(forwardList[8][0]);
-
+    std::cout << "The final order (in reverse):" << std::endl;
     printV(ordered);
+    writeout(ordered);
+
+
 }
 
 
