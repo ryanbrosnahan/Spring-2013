@@ -4,7 +4,6 @@ Akron, Ohio | Ryan@RyanBrosnahan.com | (614)-772-4300
 
 
 **The University of Akron**  
-Fall 2013
 
 B.Sc. - **Computer Science**  
 B.Sc. - **Economics**  
@@ -14,30 +13,33 @@ Minor - **Applied Mathematics**
 ## Skills ##
 
 
- - **Languages** C++, SAS, Java, SQL, PHP, HTML, Matlab, C, Markdown
- - **Software** Bash, Git, SVN, Qt, Minitab, Autodesk Inventor
+ - **Languages** C/C++, R, SAS, Java, SQL, PHP, HTML, Matlab, C, Python, Markdown
+ - **Software** Bash, PowerShell, Git, SVN, Mercurial,  Qt, RapidMiner, Minitab, Autodesk Inventor, MS Server Management Studio, MS Business Intelligence Development Studio, RStudio, MS Reporting Services
+ - **Concepts** Agile, OOP, Business Analysis, Data Mining, Statistical Inference
  - **Environments** GNU/Linux, Windows
 
 ## Experience  ##
 
-**Student Research Assistant in Chemical Engineering** |
-The University of Akron |
-June 2005 - August 2006
+**Pointe Blank Software** |
+Data Analyst |
+May 2013 - Present
 
- - Designed and conducted chemical engineering research
- - Collaborated with professionals in the field
- - Produced and published novel research in the field of biofuel synthesis
+ - Began as a Co-op student and was asked to stay 
+ - Worked in an Agile environment on both team and individual projects
+ - Projects included optimizing reports and their associated T-SQL queries
+ - Data mining large datasets to extract information that may be useful to Pointe Blank's marketing strategy or to their customers
 
-**Student Research Assistant in Polymer Science** |
-The University of Akron |
-September 2006 - October 2010
+**Startup Consultant** |
+Self-Proprietor |
+September 2012 - Present
 
- - Worked on a collaborative project with the University of Akron and an Akron-based startup in the advanced materials field
- - Presented complex processes to guests and clients of the company 
- - Made meaningful contributions while working  in a team of accomplished researchers in the field
+ - Given me experience with Quixby, I have been approached by several startups seeking advice on how to build and grow their incubating company
+ - Clients have ranged from an integrated circuit manufacturer to an alcohol distillery
+ - This is mostly a weekend hobby. For those companies that I have helped, it's meant the difference between and idea and a dream
 
-**Amazon.com Book Reseller** |
-Self Proprietor | 
+
+**Monx Books** |
+Founder | 
 July 2010 - January 2013 
 
  - Successfully started and ran a self-funded small business
@@ -51,3 +53,10 @@ May 2012 - November 2012
  - Conducted quantitative business research and gained expert knowledge of the retail technology industry
  - Networked with influential entrepreneurs across Ohio
  - The company raised over $100k during my time there
+
+**Other Experience**
+
+ - **Investor / Options Trader** | 2007 - Present
+ - **Student Research Assistant - Carbon Nanofiber startup** | 2006 - 2010
+ - **Student Research Assistant - Biofuel research** | 2005 - 2006
+
