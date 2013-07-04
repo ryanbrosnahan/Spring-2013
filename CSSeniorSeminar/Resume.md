@@ -1,5 +1,5 @@
 # Ryan Brosnahan #
-Akron, Ohio | Ryan@RyanBrosnahan.com | (614)-772-4300
+Akron, Ohio | BrosnahanRyan@Gmail.com | (614) - 772 - 4300
 ## Education ##
 
 
@@ -14,8 +14,8 @@ Minor - **Applied Mathematics**
 
 
  - **Languages** C/C++, R, SAS, Java, SQL, PHP, HTML, Matlab, C, Python, Markdown
- - **Software** Bash, PowerShell, Git, SVN, Mercurial,  Qt, RapidMiner, Minitab, Autodesk Inventor, MS Server Management Studio, MS Business Intelligence Development Studio, RStudio, MS Reporting Services
- - **Concepts** Agile, OOP, Business Analysis, Data Mining, Statistical Inference
+ - **Software** Bash, PowerShell, Git, SVN, Mercurial,  Qt, RapidMiner, Minitab, Autodesk Inventor, MS Server Management Studio, MS Business Intelligence Development Studio, RStudio, MS Reporting Services, GitHub
+ - **Concepts** Business Analysis, Data Mining, Statistical Inference, Agile, OOP
  - **Environments** GNU/Linux, Windows
 
 ## Experience  ##
@@ -26,8 +26,9 @@ May 2013 - Present
 
  - Began as a Co-op student and was asked to stay 
  - Worked in an Agile environment on both team and individual projects
- - Projects included optimizing reports and their associated T-SQL queries
- - Data mining large datasets to extract information that may be useful to Pointe Blank's marketing strategy or to their customers
+ - Projects included:
+  - Optimizing reports and their associated T-SQL queries
+  - Data mining large datasets to extract information that may be useful to Pointe Blank's business strategy or to their customers
 
 **Startup Consultant** |
 Self-Proprietor |
@@ -50,7 +51,7 @@ July 2010 - January 2013
 Quixby LLC | 
 May 2012 - November 2012 
 
- - Conducted quantitative business research and gained expert knowledge of the retail technology industry
+ - Conducted quantitative business research and gained abundant knowledge of the retail technology industry
  - Networked with influential entrepreneurs across Ohio
  - The company raised over $100k during my time there
 
