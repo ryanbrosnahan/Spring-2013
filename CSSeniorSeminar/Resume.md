@@ -34,7 +34,7 @@ May 2013 - Present
 Self-Proprietor |
 September 2012 - Present
 
- - Given me experience with Quixby, I have been approached by several startups seeking advice on how to build and grow their incubating company
+ - Given my experience with Quixby, I have been approached by several startups seeking advice on how to build and grow their incubating company
  - Clients have ranged from an integrated circuit manufacturer to an alcohol distillery
  - This is mostly a weekend hobby. For those companies that I have helped, it's meant the difference between and idea and a dream
 
