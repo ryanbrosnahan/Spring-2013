@@ -1,7 +1,5 @@
 # Ryan Brosnahan #
-Akron, Ohio | BrosnahanRyan@Gmail.com | (614) - 772 - 4300
-## Education ##
-
+Akron, Ohio | BrosnahanRyan@Gmail.com | (614) - 772 - 4300  
 
 **The University of Akron**  
 
@@ -15,29 +13,20 @@ Minor - **Applied Mathematics**
 
  - **Languages** C/C++, R, SAS, Java, SQL, PHP, HTML, Matlab, C, Python, Markdown
  - **Software** Bash, PowerShell, Git, SVN, Mercurial,  Qt, RapidMiner, Minitab, Autodesk Inventor, MS Server Management Studio, MS Business Intelligence Development Studio, RStudio, MS Reporting Services, GitHub
- - **Concepts** Business Analysis, Data Mining, Statistical Inference, Agile, OOP
+ - **Concepts** Business Analysis, Data Mining, Statistical Inference, Agile, OOP, Finance
  - **Environments** GNU/Linux, Windows
 
 ## Experience  ##
 
+
 **Pointe Blank Software** |
-Data Analyst |
-May 2013 - Present
+Data Analyst Co-op |
+May 2013 - August 2013
 
- - Began as a Co-op student and was asked to stay 
  - Worked in an Agile environment on both team and individual projects
- - Projects included:
-  - Optimizing reports and their associated T-SQL queries
-  - Data mining large datasets to extract information that may be useful to Pointe Blank's business strategy or to their customers
-
-**Startup Consultant** |
-Self-Proprietor |
-September 2012 - Present
-
- - Given my experience with Quixby, I have been approached by several startups seeking advice on how to build and grow their incubating company
- - Clients have ranged from an integrated circuit manufacturer to an alcohol distillery
- - This is mostly a weekend hobby. For those companies that I have helped, it's meant the difference between and idea and a dream
-
+ - Contributed to implementation of a Data Warehouse
+ - Optimized reports and their associated T-SQL queries
+ - Analyzed large datasets using various data mining methodologies
 
 **Monx Books** |
 Founder | 
@@ -47,16 +36,18 @@ July 2010 - January 2013
  - Sold new and used textbooks on Amazon.com with an inventory of over 40,000 books
  - Hired and managed employees
 
-**Partner, Research Guru** |
+**Partner, Research and Business Development** |
 Quixby LLC | 
-May 2012 - November 2012 
+May 2011 - November 2012 
 
- - Conducted quantitative business research and gained abundant knowledge of the retail technology industry
+ - Performed extensive market research on the retail techonolgy industry
  - Networked with influential entrepreneurs across Ohio
- - The company raised over $100k during my time there
+ - Raised over $100k in first two rounds of funding
 
 **Other Experience**
 
+ - **Software and Data Science Consultant** | August 2013 - Present
+ - **Startup Consultant** | November 2012 - Present
  - **Investor / Options Trader** | 2007 - Present
  - **Student Research Assistant - Carbon Nanofiber startup** | 2006 - 2010
  - **Student Research Assistant - Biofuel research** | 2005 - 2006
