@@ -5,11 +5,9 @@ Akron, Ohio | BrosnahanRyan@Gmail.com | (614) - 772 - 4300
 
 B.Sc. - **Computer Science**  
 B.Sc. - **Economics**  
-Minor - **Applied Mathematics**                                                                                                                                                                                             
-
+Minor - **Applied Mathematics**  
 
 ## Skills ##
-
 
  - **Languages** C/C++, R, SAS, Java, SQL, PHP, HTML, Matlab, C, Python, Markdown
  - **Software** Bash, PowerShell, Git, SVN, Mercurial,  Qt, RapidMiner, Minitab, Autodesk Inventor, MS Server Management Studio, MS Business Intelligence Development Studio, RStudio, MS Reporting Services, GitHub
@@ -17,7 +15,6 @@ Minor - **Applied Mathematics**
  - **Environments** GNU/Linux, Windows
 
 ## Experience  ##
-
 
 **Pointe Blank Software** |
 Data Analyst Co-op |
@@ -42,7 +39,7 @@ May 2011 - November 2012
 
  - Performed extensive market research on the retail techonolgy industry
  - Networked with influential entrepreneurs across Ohio
- - Raised over $100k in first two rounds of funding
+ - Raised over $100k during first two rounds of funding
 
 **Other Experience**
 
